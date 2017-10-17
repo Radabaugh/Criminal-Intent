@@ -2,12 +2,18 @@ package com.radabaugh.tyler.criminalintent;
 
 import android.content.Context;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+
 /**
  * Created by Tyler Radabaugh on 10/17/2017.
  */
 
 public class CrimeLab {
     private static CrimeLab sCrimeLab;
+
+    private List<Crime> mCrimes;
 
     public static CrimeLab get(Context context) {
         if (sCrimeLab == null) {
@@ -17,6 +23,20 @@ public class CrimeLab {
     }
 
     private CrimeLab(Context context) {
-        
+        mCrimes = new ArrayList<>();
+    }
+
+    public List<Crime> getCrimes(){
+        return mCrimes;
+    }
+
+    public Crime getCrime(UUID id) {
+        for (Crime crime : mCrimes) {
+            if (crime.getId().equals(id)) {
+                return crime;
+            }
+        }
+
+        return null;
     }
 }
