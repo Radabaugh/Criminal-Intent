@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.List;
+
 /**
  * Created by Tyler Radabaugh on 10/17/2017.
  */
@@ -29,6 +31,15 @@ public class CrimeListFragment extends Fragment {
     private class CrimeHolder extends RecyclerView.ViewHolder {
         public CrimeHolder(LayoutInflater inflater, ViewGroup parent) {
             super(inflater.inflate(R.layout.list_item_crime, parent, false));
+        }
+    }
+
+    private class CrimeAdapter extends RecyclerView.Adapter<CrimeHolder> {
+
+        private List<Crime> mCrimes;
+
+        public CrimeAdapter(List<Crime> crimes) {
+            mCrimes = crimes;
         }
     }
 }
