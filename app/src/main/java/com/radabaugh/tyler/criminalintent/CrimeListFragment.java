@@ -1,6 +1,10 @@
 package com.radabaugh.tyler.criminalintent;
 
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 /**
  * Created by Tyler Radabaugh on 10/17/2017.
@@ -8,5 +12,15 @@ import android.support.v4.app.Fragment;
 
 public class CrimeListFragment extends Fragment {
 
-    // Nothing yet
+    private RecyclerView mCrimeRecyclerView;
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_crime_list, container, false);
+
+        mCrimeRecyclerView = (RecyclerView) view.findViewById(R.id.crime_recycler_view);
+        mCrimeRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        return view;
+    }
 }
