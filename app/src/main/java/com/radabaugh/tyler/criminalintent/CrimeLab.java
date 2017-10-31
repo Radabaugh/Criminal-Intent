@@ -65,7 +65,7 @@ public class CrimeLab {
                 whereArgs,
                 null, // groupBy
                 null, // having
-                null, // orderBy
+                null // orderBy
         );
 
         return cursor;
